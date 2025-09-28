@@ -79,7 +79,7 @@ class KaggleSubtitleProcessor:
         print(f"📁 Processing {csv_file_path}...")
 
         if not os.path.exists(csv_file_path):
-            print(f"❌ File not found: {csv_file_path}")
+            print(f"File not found: {csv_file_path}")
             return False
 
         try:
@@ -99,11 +99,11 @@ class KaggleSubtitleProcessor:
                 self.create_database(processed_data, db_name)
                 return True
             else:
-                print("   ❌ No data to process")
+                print("No data to process")
                 return False
 
         except Exception as e:
-            print(f"   ❌ Error processing CSV: {e}")
+            print(f"Error processing CSV: {e}")
             return False
 
     def process_dataframe(self, df, dataset_type):
@@ -129,7 +129,7 @@ class KaggleSubtitleProcessor:
                 break
 
         if not text_col:
-            print(f"   ❌ No text column found. Available: {list(df.columns)}")
+            print(f"No text column found. Available: {list(df.columns)}")
             return []
 
         print(f"   Using text column: '{text_col}'")
@@ -202,11 +202,11 @@ End of subtitle chunk"""
         conn.commit()
         conn.close()
 
-        print(f"✅ Database created: {db_name} with {len(movie_data)} entries")
+        print(f"Database created: {db_name} with {len(movie_data)} entries")
 
     def download_sample_kaggle_data(self):
         """Download a sample from Kaggle-style data (for demo)"""
-        print("📥 Creating Kaggle-style Sample Data")
+        print("Creating Kaggle-style Sample Data")
         print("=" * 35)
 
         # Simulate real Kaggle subtitle data
@@ -233,7 +233,7 @@ End of subtitle chunk"""
         csv_path = "kaggle_sample.csv"
         df.to_csv(csv_path, index=False)
 
-        print(f"✅ Created sample CSV: {csv_path}")
+        print(f"Created sample CSV: {csv_path}")
 
         # Process the sample
         success = self.process_csv_to_database(csv_path, "sample")
@@ -272,7 +272,7 @@ def main():
 
     elif choice == "4":
         if processor.download_sample_kaggle_data():
-            print("\n🎉 Sample database created!")
+            print("\n Sample database created!")
             print("Run: python3 search_engine.py")
             print("Change database path to: kaggle_sample_database.db")
 
