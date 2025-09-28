@@ -4,7 +4,7 @@ This project implements a **true semantic search engine** for movie subtitles us
 
 ## ✨ Features
 
-- **🧠 True Semantic Search:** Uses Sentence-BERT neural embeddings to understand meaning
+- **🧠 Semantic Search:** Uses Sentence-BERT neural embeddings to understand meaning
 - **🎯 Concept Understanding:** Finds "betrayal" when you search "backstab" and vice versa
 - **📊 High-Quality Data:** Clean, processed subtitle database with meaningful content
 - **⚡ Fast Performance:** Optimized for quick semantic similarity search
@@ -51,13 +51,6 @@ jupyter notebook Movie_Subtitle_Search_Engine.ipynb
 - `"fear"` → Finds "scared", "panic", "atrocities"
 - `"evil villain"` → Finds "evil emperor", "backstabbing murderer"
 
-## 🏆 Perfect For
-
-✅ **Internship Applications** - Demonstrates semantic search mastery
-✅ **Portfolio Projects** - Professional implementation with real data
-✅ **Technical Interviews** - Shows ML, NLP, and data processing skills
-✅ **Academic Research** - Jupyter notebook with detailed analysis
-
 ## 🛠 Technical Stack
 
 - **🐍 Python** - Core language
@@ -74,10 +67,3 @@ jupyter notebook Movie_Subtitle_Search_Engine.ipynb
 - **Semantic Similarity:** Cosine similarity on 384-dimensional sentence embeddings
 - **Fallback System:** TF-IDF backup if neural model fails
 - **Optimized Performance:** Efficient batch processing and caching
-
-## 🎖️ Perfect For Portfolios
-
-✅ **Internship Applications** - Shows advanced NLP and semantic search skills
-✅ **Technical Interviews** - Demonstrates ML, embeddings, and system design
-✅ **Academic Projects** - Includes detailed Jupyter analysis and methodology
-✅ **Production Systems** - Professional code structure and error handling
