@@ -62,7 +62,7 @@ class UniversalMovieSearchEngine:
     def select_database(self):
         """Let user select which database to use"""
         if not self.available_databases:
-            print("❌ No subtitle databases found!")
+            print("No subtitle databases found!")
             print("Run: python3 kaggle_data_processor.py (option 4) to create sample data")
             return None
 
@@ -82,7 +82,7 @@ class UniversalMovieSearchEngine:
                 idx = int(choice) - 1
                 if 0 <= idx < len(db_list):
                     selected_db = db_list[idx][0]
-                    print(f"✅ Selected: {self.available_databases[selected_db]}")
+                    print(f"Selected: {self.available_databases[selected_db]}")
                     return selected_db
                 else:
                     print("Invalid choice, try again.")
@@ -104,7 +104,7 @@ class UniversalMovieSearchEngine:
             rows = cursor.fetchall()
             conn.close()
         except Exception as e:
-            print(f"❌ Database error: {e}")
+            print(f"Database error: {e}")
             return []
 
         processed_data = []
@@ -176,7 +176,7 @@ class UniversalMovieSearchEngine:
                 print(f"Semantic index created with {len(documents)} documents")
                 return True
             except Exception as e:
-                print(f"⚠️  Semantic model failed ({e}), falling back to TF-IDF")
+                print(f"Semantic model failed ({e}), falling back to TF-IDF")
                 self.use_semantic = False
 
         if not self.use_semantic:
@@ -285,7 +285,7 @@ def main():
     engine = UniversalMovieSearchEngine()
 
     if not engine.setup():
-        print("❌ Setup failed!")
+        print("Setup failed!")
         print("\n💡 To create sample data:")
         print("   python3 kaggle_data_processor.py")
         print("   Choose option 4 for Kaggle-style sample")
@@ -294,13 +294,13 @@ def main():
     # Show database info
     engine.show_database_info()
 
-    print(f"\n✅ Ready! Search engine loaded with {len(engine.data)} movies")
+    print(f"\n Ready! Search engine loaded with {len(engine.data)} movies")
     print("Examples: 'betrayal friend', 'life wisdom', 'love story', 'action hero'")
 
     # Interactive search
     while True:
         try:
-            query = input(f"\n🔍 Search: ").strip()
+            query = input(f"\n Search: ").strip()
 
             if query.lower() in ['quit', 'exit', 'q']:
                 break
@@ -312,7 +312,7 @@ def main():
 
             if results:
                 search_type = results[0].get('type', 'unknown')
-                print(f"\n📺 Found {len(results)} results ({search_type} search):")
+                print(f"\n Found {len(results)} results ({search_type} search):")
                 for result in results:
                     print(f"\n{result['rank']}. {result['movie']} (similarity: {result['similarity']})")
                     print(f"   \"{result['preview']}\"")
